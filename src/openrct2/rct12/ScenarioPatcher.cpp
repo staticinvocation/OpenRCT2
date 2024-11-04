@@ -581,6 +581,12 @@ static void ApplyPathFixes(const json_t& scenarioPatch)
 
         auto railings = OpenRCT2::Json::GetString(pathFix[_railingsKey]);
         auto surface = OpenRCT2::Json::GetString(pathFix[_surfaceKey]);
+
+        if (_dryRun)
+        {
+            continue;
+        }
+
         auto& objectManager = OpenRCT2::GetContext()->GetObjectManager();
         auto railingsObjIndex = objectManager.GetLoadedObjectEntryIndex(railings);
         auto surfaceObjIndex = objectManager.GetLoadedObjectEntryIndex(surface);
