@@ -99,7 +99,6 @@ static u8string ToOwnershipJsonKey(int ownershipType)
     return {};
 }
 
-
 static void readCoordinate(std::vector<TileCoordsXY>& out, const json_t& coordinatesArray)
 {
     if (coordinatesArray.size() != 2)
