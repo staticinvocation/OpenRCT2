@@ -121,8 +121,7 @@ static void readCoordinate(std::vector<TileCoordsXYZ>& out, const json_t& coordi
     }
 
     out.emplace_back(
-        OpenRCT2::Json::GetNumber<int32_t>(coordinatesArray[0]),
-        OpenRCT2::Json::GetNumber<int32_t>(coordinatesArray[1]),
+        OpenRCT2::Json::GetNumber<int32_t>(coordinatesArray[0]), OpenRCT2::Json::GetNumber<int32_t>(coordinatesArray[1]),
         OpenRCT2::Json::GetNumber<int32_t>(coordinatesArray[2]));
 }
 
@@ -587,7 +586,6 @@ static void ApplyPathFixes(const json_t& scenarioPatch)
         auto railingsObjIndex = objectManager.GetLoadedObjectEntryIndex(railings);
         auto surfaceObjIndex = objectManager.GetLoadedObjectEntryIndex(surface);
 
-        
         if (railingsObjIndex == OBJECT_ENTRY_INDEX_NULL)
         {
             OpenRCT2::Guard::Assert(0, "Railings object not found");
@@ -618,9 +616,7 @@ static void ApplyPathFixes(const json_t& scenarioPatch)
 
             MapInvalidateTileFull(coordinate.ToCoordsXY());
         }
-
     }
-
 }
 
 static u8string getScenarioSHA256(u8string_view scenarioPath)
