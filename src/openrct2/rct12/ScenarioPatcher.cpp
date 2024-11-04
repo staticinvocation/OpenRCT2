@@ -177,9 +177,9 @@ static Direction GetDirection(const json_t& parameters)
 
     Direction direction = OpenRCT2::Json::GetNumber<Direction>(parameters[_directionKey]);
 
-    if (!(direction >= 0 && direction <= 3))
+    if (direction > 3)
     {
-        OpenRCT2::Guard::Assert(0, "Cannot have fix without direction key");
+        OpenRCT2::Guard::Assert(0, "Direction must be between 0 and 3");
         return INVALID_DIRECTION;
     }
 
